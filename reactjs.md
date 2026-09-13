@@ -33,11 +33,6 @@ Your reactjs folder is created successfully have all necessary files and folders
 ## 5. Components
 Component is like a function that does specific task.
 
-__Importance__
-- Clean, usable code
-- A
-- A
-
 __Code__  
 _App.jsx_
 ```bash
@@ -79,3 +74,42 @@ createRoot(document.getElementById('root')).render(
 ```
 
 _Efficient way of using components is to making a separate folder that has all the separate components/funstions_
+
+## 6. Props  
+Manipulate data in functions.  
+Its like passing values in functions and using them.
+
+We use the same function for different users having __username__ and __age__ attributes.
+
+Let us consider a card havind username and age.  
+_card.jsx_
+```bash
+import React from 'react'
+
+const card = (props) => { 
+  return (
+    <div className='card'>
+        {props.username} {props.age}
+    </div>
+  )
+}
+
+export default card
+```
+
+_App.jsx_
+```bash
+import Card from '../components/card.jsx'
+
+const App = () => {
+  return (
+    <>
+      <Card username="Bilal" age={10} />
+      <Card username="Ali" age={49} />
+      <Card username="Hamza" age={21} />
+    </>
+  )
+}
+
+export default App
+```
