@@ -34,7 +34,7 @@ Your reactjs folder is created successfully have all necessary files and folders
 Component is like a function that does specific task.
 
 __Code__  
-_App.jsx_
+- App.jsx
 ```bash
 // Component 1
 export default function Hero() {
@@ -58,7 +58,7 @@ export function Footer() {
 }
 ```
 
-_main.jsx_
+- main.jsx
 ```bash
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -76,17 +76,17 @@ createRoot(document.getElementById('root')).render(
 _Efficient way of using components is to making a separate folder that has all the separate components/funstions_
 
 ## 6. Props  
-Manipulate data in functions.  
+Adding desired data using same function.  
 Its like passing values in functions and using them.
 
-We use the same function for different users having __username__ and __age__ attributes.
 
 Let us consider a card havind username and age.  
-_card.jsx_
+- card.jsx
 ```bash
 import React from 'react'
 
-const card = (props) => { 
+// Catching values as 'props' parameter
+const Card = (props) => { 
   return (
     <div className='card'>
         {props.username} {props.age}
@@ -94,16 +94,17 @@ const card = (props) => {
   )
 }
 
-export default card
+export default Card
 ```
 
-_App.jsx_
+- App.jsx
 ```bash
 import Card from '../components/card.jsx'
 
 const App = () => {
   return (
     <>
+      // Here we pass desired values 
       <Card username="Bilal" age={10} />
       <Card username="Ali" age={49} />
       <Card username="Hamza" age={21} />
@@ -113,3 +114,50 @@ const App = () => {
 
 export default App
 ```
+
+## Project : Components and Props  
+Make instagram profie like cards ( having profile pic, name , info and profile-view button) as shown in given picture.
+
+__ScreenShot__ 
+![Project](<Project_ Components and Props.png>)
+
+__Code__
+- card.jsx
+```bash
+import React from 'react'
+
+const Card = (props) => {
+  return (
+    <div className="card">
+      <img src={props.img} />
+      <h2>{props.name}</h2>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <button>View Profile</button>
+    </div>
+  )
+}
+
+export default Card
+```
+
+- App.jsx 
+```bash
+import Card from "../components/card.jsx";
+
+const  App = () => {
+  return (
+    <>
+      <Card name="Saad" img = "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"/>
+
+      <Card name="Haider" img = "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"/>
+
+      <Card name="Waqas" img = "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"/>
+
+    </>
+  )
+}
+
+export default App
+```
+
+## Project 2 :
