@@ -8,6 +8,7 @@ __Before Starting ReactJS, you must know__
 - Import/Export
 - SPA and MPA
 
+#
 ## 2. Create React Folder with Vite
 To create a reactjs folder (with pre-build all necessary files and folders) , you need to open the terminal in the desired location you want to make a folder. 
 
@@ -30,6 +31,7 @@ npm run dev
 
 Your reactjs folder is created successfully have all necessary files and folders .
 
+#
 ## 5. Components
 Component is like a function that does specific task.
 
@@ -75,6 +77,7 @@ createRoot(document.getElementById('root')).render(
 
 _Efficient way of using components is to making a separate folder that has all the separate components/funstions_
 
+#
 ## 6. Props  
 Adding desired data using same function.  
 Its like passing values in functions and using them.
@@ -119,7 +122,7 @@ export default App
 Make instagram profie like cards ( having profile pic, name , info and profile-view button) as shown in given picture.
 
 __ScreenShot__ 
-![Project](<Project_ Components and Props.png>)
+![Project](<./assets/Project_ Components and Props.png>)
 
 __Code__
 - card.jsx
@@ -160,4 +163,95 @@ const  App = () => {
 export default App
 ```
 
-## Project 2 :
+#
+# 7. Simple CSS
+We followed the method in which all of the css styles contain in only one globla style.css file .  
+Which results  
+- same classname elements catches the same css   
+i.e __ all button having same classname (btn) catches the same styles from the global css file.
+
+### But   
+If we want all of the buttons having same name (btn) but catches the desired css styles , then we will use the concept of __MODULE CSS__ .
+ 
+# Module CSS
+In module css , we will write css in different .css files for each component.  
+So this way , all of the buttons having same classname (btn) in each .css file but different styles for each button.
+
+- example
+![Project](<./assets/module css.png>)
+
+_here button 1 and button 2 have same name (btn) in their own css file but different in styles because of their own .css files reference_
+
+__CSS Code__
+- header.module.css 
+```bash
+.header {
+    width: 300px;
+    padding: 10px;
+    background-color: black;
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+/* this is for button 1  */
+.btn {
+    background-color: rgb(239, 70, 14);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+```
+
+
+- button.module.css
+```bash
+/* this if for button 2  */
+.btn {
+    padding: 10px 20px;
+    background-color: rgb(124, 31, 206);
+    border-radius: 10px;
+    margin-left: 10px;
+}
+```
+
+__.jsx Code__
+- header.jsx
+```bash
+import React from 'react'
+import styles from './header.module.css'
+
+
+const header = () => {
+  return (
+    <div className={styles.header}>
+      <h2>This is header</h2>
+      <button className={styles.btn}>Button 1</button>
+
+    </div>
+  )
+}
+
+export default header
+```
+-button.jsx
+```bash
+import React from 'react'
+import styles from './button.module.css'
+
+const button = () => {
+  return (
+    <button className={styles.btn} >Button 2</button>
+  )
+}
+
+export default button
+
+``` 
+in both .jsx files , the classname of button {styles.btn} = btn , which is refering to their own .css file.
+
+__Summary__  
+.css files are separated , so the styles will be different.
+
