@@ -255,3 +255,24 @@ in both .jsx files , the classname of button {styles.btn} = btn , which is refer
 __Summary__  
 .css files are separated , so the styles will be different.
 
+#
+
+# 8.Tailwind CSS
+
+- Install tailwind css Using Vite from official tailwind.css website.
+
+## Project
+- Making a Project of given ui .  
+
+![Tailwind Project](<./assets/tailwind-project.png>)
+ 
+- Use component based architecture
+- Use proper props drilling concept
+- Use tailwind css 
+
+## Result
+
+![Tailwind Project](<./assets/tailwind-project-result.png>)
+
+
+#
