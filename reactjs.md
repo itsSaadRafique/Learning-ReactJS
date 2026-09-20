@@ -2,7 +2,7 @@ _Note: This md file contains each concepts of ReachJS following the SheriyansCod
 
 __Before Starting ReactJS, you must know__
 
-## 1. ReactJS Into
+## 1. ReactJS Introduction
 - What is reactjs ? Why facebook build it ? (Story)
 - Library vs Framework
 - Import/Export
@@ -19,7 +19,7 @@ npm create vite
 ```
 - Name your folder 
 - Select framework -> __React__
-
+- Select Javascript  
 
 __Now__ open the terminal in the folder you made and run these commands.
 
@@ -81,7 +81,7 @@ _Efficient way of using components is to making a separate folder that has all t
 ## 6. Props  
 Adding desired data using same function.  
 Its like passing values in functions and using them.
-
+__NOTE__ Data will always go from top to bottom .ie: Parent to child.
 
 Let us consider a card havind username and age.  
 - card.jsx
@@ -274,5 +274,68 @@ __Summary__
 
 ![Tailwind Project](<./assets/tailwind-project-result.png>)
 
+
+#
+
+## Functions
+
+This folder is to understand :
+- How to call a function 
+- with trying different events
+
+
+## Calling Function
+
+### Without Argument
+- No argument is sent and recieved  
+- Simple click will print on console
+
+```bash 
+const App = () => {
+
+  const btnClicked = ()=>{
+    console.log("Button is clicked");
+  }
+
+  return (
+    <div>
+      <button onClick={btnClicked} className='btn'>Click Me</button>
+    </div>
+  )
+}
+
+export default App
+```
+#
+### With Argument
+
+- Now, when it is needed to send argument to function
+- Use following method with a example 
+- i.e. This time i am tracking the alt key via click and passing that tracked value to the function and then the fn will print it on console
+
+```bash 
+const App = () => {
+
+  const btnClicked = (ele)=>{
+    console.log('Button clicked , Alt key ',ele);
+  }
+
+  return (
+    <div>
+      <button onClick={function(ele){
+        btnClicked(ele.altKey);
+      }} className='btn'>
+      
+      Mouse Over
+
+      </button>
+    </div>
+  )
+}
+
+export default App
+```
+__Result__ : This time if the user click the button while pressing alt then the printed value will be "Button clicked , Alt true"
+, otherwise "Button click , Alt false".
 
 #
