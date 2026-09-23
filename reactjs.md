@@ -339,3 +339,145 @@ __Result__ : This time if the user click the button while pressing alt then the 
 , otherwise "Button click , Alt false".
 
 #
+# Hooks
+
+## 1. useState
+```useState``` is a React Hook that lets you add a state variable to your component
+
+```bash
+const [state, setState] = useState(initialState)
+```
+
+- Code Examples 
+```bash
+import { useState } from 'react';
+
+function MyComponent() {
+  const [age, setAge] = useState(28);
+  const [name, setName] = useState('ACP Sahab');
+  const [todos, setTodos] = useState(() => createTodos());
+  // ...
+  ```
+
+  - settler Function 
+  ```bash 
+  const btnClicked = ()=>{
+    setAge(50) // now the age is changed from 28 to 50
+  }
+```
+
+# 
+
+## Form Handling
+
+- The default behviour of form tag ```<form>  </form>``` is to reload the page when the Submit button is presses .
+- To disable this behavious explicitely , we have to call a function named ```preventDefault()``` 
+
+```bash 
+const App = () => {
+
+  const submitAnalyzer = () => {
+    console.log("Form is submitted successfully !")
+  }
+
+  return (
+    <div>
+
+      <form onSubmit={(e) => {
+        e.preventDefault() 
+        submitAnalyzer()
+      }}>
+
+
+        <div className="form">
+          <input type="text" placeholder='Enter Something and Submit' />
+          <button>Submit</button>
+        </div>
+
+      </form>
+
+    </div>
+  )
+}
+
+export default App
+```
+
+__Analysis__
+- Before ```preventDefault()```:  The page reloads and the output is not shown permanently
+- After ```preventDefault()```:  The page stops to reload . So, the output persist on console.
+
+#
+
+
+
+#
+# Two Way Binding 
+The concept of involving the REACT to deal with any situation, instead of doing it directly.  
+ie: Filling the input bar with the help of react , instead of filling it directly.
+
+
+- Code 
+```bash 
+import React, { useState } from 'react'
+
+const App = () => {
+
+    const [text, setText] = useState('')
+
+
+    return (
+        <form onSubmit={(e)=>{  
+            e.preventDefault()
+
+            console.log("Form is submitted.")
+            console.log(text)
+        }} >
+
+            <div className='box'>
+                <input onChange={(e)=>{
+                    setText(e.target.value)
+
+                }} className='input' type="text" placeholder='Enter here ...' value={text} />
+
+                <button className='btn'>Submit</button>
+
+            </div>
+        </form>
+
+    )
+}
+
+export default App
+```
+- Methodology
+1. initialise state with empty string " "
+2. tracking input values and setting it in the initialized string '' using settler function
+
+Now , the react is involving while the user types in input bar.
+
+### Alternate wrong method 
+Wrong method : Directly interacting with input.
+
+- Wrong method Example Code 
+```bash
+import React, { useState } from 'react'
+
+const App = () => {
+    return (
+        <form onSubmit={(e)=>{  
+            e.preventDefault()
+            console.log("Form is submitted.")
+        }} >
+
+            <div className='box'>
+                <input className='input' type="text" placeholder='Enter here ...'  />
+                <button className='btn'>Submit</button>
+            </div>
+        </form>
+    )
+}
+export default App
+
+```
+__HERE__  the user directly interacts with the input bar. React is not involves.
